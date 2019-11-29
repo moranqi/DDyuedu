@@ -3,7 +3,6 @@
         <meta charset="UTF-8">
         <title>登录</title>
         <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="/sell/css/style.css">
     </head>
     <body>
         <div style="margin-top: 100px" class="container">
@@ -11,7 +10,7 @@
                 <div class="col-md-4 column">
                 </div>
                 <div class="col-md-4 column">
-                    <from role="form" method="get" action="/sell/seller/login">
+                    <from role="form" method="get" action="/book/login/login">
                         <div class="form-group">
                             <label>用户名</label><input type="text" class="form-control" name="username"/>
                         </div>

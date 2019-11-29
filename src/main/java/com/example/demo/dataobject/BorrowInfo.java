@@ -14,28 +14,20 @@ import java.util.Date;
 @Data
 @DynamicInsert
 @DynamicUpdate
-public class PeopleInfo {
+public class BorrowInfo {
     @Id
+    /**借阅ID*/
+    private String borrowId;
+    /**用户Id*/
     private String userId;
-    /**用户名*/
-    private String username;
-    /**密码*/
-    private String password;
-    /**用户名字*/
-    private String name;
-    /**用户头像*/
-    private String userIcon;
-    /**用户简介*/
-    private String profile;
-    /**密保问题*/
-    private String question;
-    /**密保答案*/
-    private String answer;
-    /**用户信誉*/
-    private Integer nowCredit;
+    /**书本Id*/
+    private String bookId;
+    /**应还书日期*/
+    private Date bookReturn;
+    /**书本是否归还*/
+    private Integer bookStatus = 0;
 
     private Date createTime;
 
     private Date updateTime;
-
 }

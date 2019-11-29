@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
-import javax.servlet.http.HttpServletResponse;
-import java.util.Map;
-
 @Controller
 @RequestMapping("/login")
 @Slf4j
@@ -31,14 +28,23 @@ public class PeopleInfoController {
     @GetMapping("/login")
     @ApiOperation(value = "登录操作",notes = "登录操作")
     public ModelAndView login(@RequestParam(value = "username",required = false) String username,
-                              @RequestParam(value = "password",required = false) String password,
-                              HttpServletResponse response,
-                              Map<String,Object> map){
+                              @RequestParam(value = "password",required = false) String password){
+        ModelAndView modelAndView=new ModelAndView("/login/index");
         PeopleInfo peopleInfo;
-        if (StringUtils.isEmpty(username)){
-            peopleInfo=peopleService.findByUsernameAndAndPassword(username, password);
+        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
+            modelAndView.addObject("message","登录用户名或密码不能为空！");
+            return modelAndView;
+        }else {
+            peopleInfo=peopleService.findByUsernameAndAndPassword(username,password);
+            if (peopleInfo==null){
+                modelAndView.addObject("message","登录用户名或密码错误！");
+                return modelAndView;
+            }else {
+                modelAndView = new ModelAndView("/index");
+                modelAndView.addObject("message","登录成功!");
+                return modelAndView;
+            }
         }
-        map.put("")
-        return
+
     }
 }

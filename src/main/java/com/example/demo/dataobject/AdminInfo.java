@@ -14,28 +14,16 @@ import java.util.Date;
 @Data
 @DynamicInsert
 @DynamicUpdate
-public class PeopleInfo {
+public class AdminInfo {
     @Id
-    private String userId;
-    /**用户名*/
+    /**管理员ID*/
+    private String adminId;
+    /**管理员账户*/
     private String username;
-    /**密码*/
+    /**管理员密码*/
     private String password;
-    /**用户名字*/
-    private String name;
-    /**用户头像*/
-    private String userIcon;
-    /**用户简介*/
-    private String profile;
-    /**密保问题*/
-    private String question;
-    /**密保答案*/
-    private String answer;
-    /**用户信誉*/
-    private Integer nowCredit;
 
     private Date createTime;
 
     private Date updateTime;
-
 }
